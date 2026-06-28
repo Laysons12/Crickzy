@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Dark Mode Purple Palette -->
+    <color name="primary">#7B6FFF</color>
+    <color name="primary_variant">#4A3AFF</color>
+    <color name="primary_light">#A5A0FF</color>
+    <color name="primary_surface">#1E1B3A</color>
+    <color name="secondary">#FF8C5A</color>
+    <color name="secondary_variant">#FF6B35</color>
+
+    <!-- Background & Surface -->
+    <color name="background">#0F1117</color>
+    <color name="surface">#1A1D26</color>
+    <color name="error">#F87171</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#F9FAFB</color>
+    <color name="text_secondary">#9CA3AF</color>
+    <color name="text_hint">#6B7280</color>
+
+    <!-- UI Element Colors -->
+    <color name="card_background">#1A1D26</color>
+    <color name="divider">#374151</color>
+    <color name="nav_inactive">#6B7280</color>
+    <color name="nav_active">#7B6FFF</color>
+
+    <!-- Tab / Chip Colors -->
+    <color name="tab_selected_bg">#7B6FFF</color>
+    <color name="tab_selected_text">#FFFFFF</color>
+    <color name="tab_unselected_bg">#1F2937</color>
+    <color name="tab_unselected_text">#9CA3AF</color>
+
+    <!-- Settings -->
+    <color name="settings_icon_bg">#1E1B3A</color>
+    <color name="settings_icon_tint">#7B6FFF</color>
+</resources>

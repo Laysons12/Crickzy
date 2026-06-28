@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🏏 Opening Batsmen"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/primary"
+        android:layout_marginBottom="12dp" />
+
+    <EditText
+        android:id="@+id/etOpeningBatsman1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Striker Name"
+        android:inputType="textPersonName"
+        android:layout_marginBottom="8dp"
+        android:padding="12dp"
+        android:background="@drawable/bg_rounded_input" />
+
+    <EditText
+        android:id="@+id/etOpeningBatsman2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Non-Striker Name"
+        android:inputType="textPersonName"
+        android:layout_marginBottom="16dp"
+        android:padding="12dp"
+        android:background="@drawable/bg_rounded_input" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="⚾ Opening Bowler"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/score_wicket"
+        android:layout_marginBottom="12dp" />
+
+    <EditText
+        android:id="@+id/etOpeningBowler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Bowler Name"
+        android:inputType="textPersonName"
+        android:padding="12dp"
+        android:background="@drawable/bg_rounded_input" />
+
+</LinearLayout>

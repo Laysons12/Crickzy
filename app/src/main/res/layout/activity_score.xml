@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:fitsSystemWindows="true">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/surface"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="Score Match"
+            app:titleTextColor="@color/text_primary"
+            app:navigationIcon="@android:drawable/ic_menu_revert" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="48dp">
+
+            <!-- Team Selection (Initially Visible) -->
+            <LinearLayout
+                android:id="@+id/llTeamInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Match Setup"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:layout_marginBottom="16dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.Crickzy.TextInputLayout"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:hint="Team 1">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etTeam1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.Crickzy.TextInputLayout"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:hint="Team 2">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etTeam2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnInitMatch"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Start Match"
+                    android:textStyle="bold"
+                    android:textAllCaps="false"
+                    android:backgroundTint="@color/primary"
+                    android:textColor="@color/white"
+                    app:cornerRadius="14dp" />
+            </LinearLayout>
+
+            <!-- Scoring Controls (Hidden until Start Match) -->
+            <LinearLayout
+                android:id="@+id/llScoreControls"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <!-- Live Scoreboard Card -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="24dp"
+                    app:cardElevation="6dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_hero_gradient"
+                        android:orientation="vertical"
+                        android:padding="24dp"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tvCurrentBatting"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TEAM 1 BATTING"
+                            android:textColor="#DDDDDD"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:letterSpacing="0.1" />
+
+                        <TextView
+                            android:id="@+id/tvLiveScore"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0/0"
+                            android:textColor="@color/white"
+                            android:textSize="54sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="4dp" />
+
+                        <TextView
+                            android:id="@+id/tvOversDisplay"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Overs: 0.0"
+                            android:textColor="#CCCCCC"
+                            android:textSize="18sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_marginTop="16dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tvRunRate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="RR: 0.00"
+                                android:textColor="@color/white"
+                                android:textSize="14sp" />
+
+                            <View android:layout_width="16dp" android:layout_height="1dp" />
+
+                            <TextView
+                                android:id="@+id/tvExtras"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Extras: 0"
+                                android:textColor="@color/white"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvTarget"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:background="@drawable/bg_live_badge"
+                            android:backgroundTint="#AAFFFFFF"
+                            android:paddingHorizontal="16dp"
+                            android:paddingVertical="4dp"
+                            android:text="Target: 0"
+                            android:textColor="@color/primary"
+                            android:textStyle="bold"
+                            android:visibility="gone" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Mini Scorecard Sections -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="1dp"
+                    app:cardBackgroundColor="@color/surface">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <!-- Batting Header -->
+                        <LinearLayout
+                            android:id="@+id/llBattingHeader"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="8dp">
+                            <TextView android:layout_width="0dp" android:layout_weight="3" android:layout_height="wrap_content" android:text="Batter" android:textStyle="bold" android:textSize="12sp" android:textColor="@color/text_secondary" />
+                            <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="R" android:gravity="center" android:textStyle="bold" android:textSize="12sp" android:textColor="@color/text_secondary" />
+                            <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="B" android:gravity="center" android:textStyle="bold" android:textSize="12sp" android:textColor="@color/text_secondary" />
+                            <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="SR" android:gravity="center" android:textStyle="bold" android:textSize="12sp" android:textColor="@color/text_secondary" />
+                        </LinearLayout>
+
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginBottom="8dp" />
+
+                        <!-- Striker -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingVertical="4dp">
+                            <TextView android:id="@+id/tvStrikerName" android:layout_width="0dp" android:layout_weight="3" android:layout_height="wrap_content" android:text="Batter 1*" android:textStyle="bold" android:textColor="@color/text_primary" />
+                            <TextView android:id="@+id/tvStrikerRuns" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="0" android:gravity="center" android:textColor="@color/text_primary" />
+                            <TextView android:id="@+id/tvStrikerBalls" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="0" android:gravity="center" android:textColor="@color/text_secondary" />
+                            <TextView android:id="@+id/tvStrikerSR" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="0.0" android:gravity="center" android:textColor="@color/primary" android:textStyle="bold" />
+                        </LinearLayout>
+                        
+                        <!-- Non-Striker -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingVertical="4dp">
+                            <TextView android:id="@+id/tvNonStrikerName" android:layout_width="0dp" android:layout_weight="3" android:layout_height="wrap_content" android:text="Batter 2" android:textColor="@color/text_secondary" />
+                            <TextView android:id="@+id/tvNonStrikerRuns" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="0" android:gravity="center" android:textColor="@color/text_primary" />
+                            <TextView android:id="@+id/tvNonStrikerBalls" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="0" android:gravity="center" android:textColor="@color/text_secondary" />
+                            <TextView android:id="@+id/tvNonStrikerSR" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="0.0" android:gravity="center" android:textColor="@color/text_secondary" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Bowling Card -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="1dp"
+                    app:cardBackgroundColor="@color/surface">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="8dp">
+                            <TextView android:layout_width="0dp" android:layout_weight="3" android:layout_height="wrap_content" android:text="Bowler" android:textStyle="bold" android:textSize="12sp" android:textColor="@color/text_secondary" />
+                            <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="O" android:gravity="center" android:textStyle="bold" android:textSize="12sp" android:textColor="@color/text_secondary" />
+                            <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="R" android:gravity="center" android:textStyle="bold" android:textSize="12sp" android:textColor="@color/text_secondary" />
+                            <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="W" android:gravity="center" android:textStyle="bold" android:textSize="12sp" android:textColor="@color/text_secondary" />
+                        </LinearLayout>
+
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginBottom="8dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView android:id="@+id/tvBowlerName" android:layout_width="0dp" android:layout_weight="3" android:layout_height="wrap_content" android:text="Bowler" android:textStyle="bold" android:textColor="@color/text_primary" />
+                            <TextView android:id="@+id/tvBowlerOvers" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="0.0" android:gravity="center" android:textColor="@color/text_primary" />
+                            <TextView android:id="@+id/tvBowlerRuns" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="0" android:gravity="center" android:textColor="@color/text_primary" />
+                            <TextView android:id="@+id/tvBowlerWickets" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="0" android:gravity="center" android:textColor="@color/score_wicket" android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- This Over Card -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="1dp"
+                    app:cardBackgroundColor="#F8F9FE">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="THIS OVER" android:textSize="11sp" android:textStyle="bold" android:textColor="@color/text_secondary" />
+                        <LinearLayout
+                            android:id="@+id/llThisOver"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Scoring Controls -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="12dp"
+                    android:text="Update Score"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary" />
+
+                <!-- Run Grid -->
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:columnCount="4"
+                    android:alignmentMode="alignBounds">
+
+                    <Button android:id="@+id/btnDot" android:layout_width="0dp" android:layout_columnWeight="1" android:text="0" style="@style/Widget.Crickzy.Button.Outlined" android:layout_margin="4dp" />
+                    <Button android:id="@+id/btnAdd1" android:layout_width="0dp" android:layout_columnWeight="1" android:text="1" style="@style/Widget.Crickzy.Button" android:layout_margin="4dp" />
+                    <Button android:id="@+id/btnAdd2" android:layout_width="0dp" android:layout_columnWeight="1" android:text="2" style="@style/Widget.Crickzy.Button" android:layout_margin="4dp" />
+                    <Button android:id="@+id/btnAdd3" android:layout_width="0dp" android:layout_columnWeight="1" android:text="3" style="@style/Widget.Crickzy.Button" android:layout_margin="4dp" />
+                    <Button android:id="@+id/btnAdd4" android:layout_width="0dp" android:layout_columnWeight="1" android:text="4" style="@style/Widget.Crickzy.Button" android:backgroundTint="@color/score_four" android:layout_margin="4dp" />
+                    <Button android:id="@+id/btnAdd5" android:layout_width="0dp" android:layout_columnWeight="1" android:text="5" style="@style/Widget.Crickzy.Button" android:layout_margin="4dp" />
+                    <Button android:id="@+id/btnAdd6" android:layout_width="0dp" android:layout_columnWeight="1" android:text="6" style="@style/Widget.Crickzy.Button" android:backgroundTint="@color/score_six" android:layout_margin="4dp" />
+                    <Button android:id="@+id/btnOut" android:layout_width="0dp" android:layout_columnWeight="1" android:text="OUT" style="@style/Widget.Crickzy.Button" android:backgroundTint="@color/score_wicket" android:layout_margin="4dp" />
+
+                </GridLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+                    <Button android:id="@+id/btnWide" android:layout_width="0dp" android:layout_weight="1" android:layout_height="48dp" android:text="Wide" style="@style/Widget.Crickzy.Button.Outlined" android:layout_margin="4dp" />
+                    <Button android:id="@+id/btnNoBall" android:layout_width="0dp" android:layout_weight="1" android:layout_height="48dp" android:text="No Ball" style="@style/Widget.Crickzy.Button.Outlined" android:layout_margin="4dp" />
+                    <Button android:id="@+id/btnUndo" android:layout_width="0dp" android:layout_weight="1" android:layout_height="48dp" android:text="Undo" style="@style/Widget.Crickzy.Button.Outlined" android:textColor="@color/secondary" android:layout_margin="4dp" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnViewScorecard"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="12dp"
+                    android:text="View Full Scorecard"
+                    android:textAllCaps="false"
+                    android:textColor="@color/primary" />
+
+                <Button
+                    android:id="@+id/btnFinishInnings"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="16dp"
+                    android:text="End Innings / Match"
+                    android:backgroundTint="@color/secondary"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textAllCaps="false"
+                    app:cornerRadius="14dp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    app:cardBackgroundColor="#E8F5E9"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="0dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="12dp"
+                        android:text="🏏 SDG 3 — Health &amp; Well-Being\nPromoting fitness through local cricket."
+                        android:textColor="#2E7D32"
+                        android:textSize="12sp"
+                        android:gravity="center" />
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

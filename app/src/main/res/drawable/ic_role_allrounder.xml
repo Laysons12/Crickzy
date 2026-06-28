@@ -1,0 +1,17 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Cricket Bat (left side) -->
+    <path
+        android:fillColor="#1B5E20"
+        android:pathData="M3,19L1,21l1,0L5,18.5l-1,-0.5zM5.5,15l-2.5,3l1,0.5L7.5,15.5zM7,11.5l-2.5,4.5l2.5,-0.5l4,-4l-1.5,-1.5zM11,8l-4,4l1.5,1.5L12.5,9.5z"/>
+    <!-- Cricket Ball (right side) -->
+    <path
+        android:fillColor="#D32F2F"
+        android:pathData="M18,3c-2.76,0 -5,2.24 -5,5s2.24,5 5,5s5,-2.24 5,-5S20.76,3 18,3z"/>
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M18,5c-0.7,0.6 -1.2,1.7 -1.2,3s0.5,2.4 1.2,3c0.7,-0.6 1.2,-1.7 1.2,-3s-0.5,-2.4 -1.2,-3z"/>
+</vector>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@android:drawable/ic_menu_today"
+        android:title="Home" />
+    <item
+        android:id="@+id/nav_live_scores"
+        android:icon="@android:drawable/ic_media_play"
+        android:title="Live" />
+    <item
+        android:id="@+id/nav_turf_booking"
+        android:icon="@android:drawable/ic_menu_mapmode"
+        android:title="Turf" />
+    <item
+        android:id="@+id/nav_tournaments"
+        android:icon="@android:drawable/ic_menu_myplaces"
+        android:title="Discover" />
+    <item
+        android:id="@+id/nav_find_players"
+        android:icon="@android:drawable/ic_menu_my_calendar"
+        android:title="Players" />
+</menu>

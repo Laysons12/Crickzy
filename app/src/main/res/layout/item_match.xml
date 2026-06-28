@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginVertical="5dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="@color/card_background"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Status badge -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:id="@+id/tvMatchStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="● LIVE"
+                android:textStyle="bold"
+                android:textSize="11sp"
+                android:textColor="@color/status_live_text"
+                android:background="@drawable/bg_live_badge"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="3dp"
+                android:textAllCaps="true"
+                android:letterSpacing="0.05" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="0dp" />
+
+            <TextView
+                android:id="@+id/tvMatchOvers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="T20"
+                android:textSize="12sp"
+                android:textColor="@color/text_secondary" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="5"
+            android:gravity="center_vertical">
+
+            <!-- Team 1 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <FrameLayout
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="6dp">
+                    <View
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_circle_icon" />
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_cricket_logo"
+                        android:contentDescription="Team 1" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/tvTeam1Name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Team 1"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_primary"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/tvTeam1Score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="150/4 (20.0)"
+                    android:textColor="@color/primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+
+            <!-- VS -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="VS"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:textColor="@color/text_hint" />
+
+            <!-- Team 2 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <FrameLayout
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="6dp">
+                    <View
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_circle_icon" />
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_cricket_logo"
+                        android:contentDescription="Team 2" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/tvTeam2Name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Team 2"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_primary"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/tvTeam2Score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0/0 (0.0)"
+                    android:textColor="@color/primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Current Batsmen Info -->
+        <LinearLayout
+            android:id="@+id/llBatsmanInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_search_bar"
+            android:padding="10dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvBatsman1Info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="★ Virat 45(30) SR:150.00"
+                android:textSize="12sp"
+                android:textColor="@color/text_primary"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvBatsman2Info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="  Rohit 23(18) SR:127.78"
+                android:textSize="12sp"
+                android:textColor="@color/text_secondary"
+                android:layout_marginTop="2dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/divider"
+                android:layout_marginVertical="4dp" />
+
+            <TextView
+                android:id="@+id/tvBowlerInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🔴 Bumrah 4.0-0-24-3"
+                android:textSize="12sp"
+                android:textColor="@color/error" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvMatchResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="Team 1 won by 50 runs"
+            android:textColor="@color/secondary"
+            android:textStyle="bold"
+            android:textSize="13sp"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

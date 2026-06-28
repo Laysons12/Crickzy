@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <EditText
+        android:id="@+id/etTeamName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Team Name"
+        android:inputType="text"
+        android:padding="12dp"
+        android:background="@drawable/bg_rounded_input"
+        android:layout_marginBottom="12dp" />
+
+    <TextView
+        android:id="@+id/tvPlayerCountHint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter player names (one per line). Players can also join via QR code later."
+        android:textSize="13sp"
+        android:textColor="#9E9E9E"
+        android:layout_marginBottom="8dp" />
+
+    <EditText
+        android:id="@+id/etPlayersInput"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:hint="Player 1&#10;Player 2&#10;Player 3&#10;... (optional)"
+        android:inputType="textMultiLine"
+        android:gravity="top"
+        android:padding="12dp"
+        android:background="@drawable/bg_rounded_input"
+        android:scrollbars="vertical" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="💡 You can add players manually or share the team QR code so players can scan and join."
+        android:textSize="12sp"
+        android:textColor="#80CBC4" />
+
+</LinearLayout>

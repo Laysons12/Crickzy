@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Striker Batsman Name"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="@color/text_primary"
+        android:layout_marginBottom="8dp" />
+
+    <EditText
+        android:id="@+id/etDialogStriker"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="e.g. Batsman 1"
+        android:paddingHorizontal="12dp"
+        android:background="@drawable/bg_search_bar"
+        android:textColor="@color/text_primary"
+        android:textColorHint="@color/text_hint"
+        android:textSize="14sp"
+        android:singleLine="true"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Non-Striker Batsman Name"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="@color/text_primary"
+        android:layout_marginBottom="8dp" />
+
+    <EditText
+        android:id="@+id/etDialogNonStriker"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="e.g. Batsman 2"
+        android:paddingHorizontal="12dp"
+        android:background="@drawable/bg_search_bar"
+        android:textColor="@color/text_primary"
+        android:textColorHint="@color/text_hint"
+        android:textSize="14sp"
+        android:singleLine="true"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Opening Bowler Name"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="@color/text_primary"
+        android:layout_marginBottom="8dp" />
+
+    <EditText
+        android:id="@+id/etDialogBowler"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="e.g. Bowler 1"
+        android:paddingHorizontal="12dp"
+        android:background="@drawable/bg_search_bar"
+        android:textColor="@color/text_primary"
+        android:textColorHint="@color/text_hint"
+        android:textSize="14sp"
+        android:singleLine="true" />
+
+</LinearLayout>

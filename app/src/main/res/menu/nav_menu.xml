@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_find_players"
+            android:title="Find Players" />
+        <item
+            android:id="@+id/nav_find_teams"
+            android:title="Find Teams" />
+        <item
+            android:id="@+id/nav_turf_booking"
+            android:title="Turf Booking" />
+        <item
+            android:id="@+id/nav_requests"
+            android:title="Requests" />
+        <item
+            android:id="@+id/nav_tournaments"
+            android:title="Tournaments" />
+        <item
+            android:id="@+id/nav_live_scores"
+            android:title="Live Scores" />
+        <item
+            android:id="@+id/nav_analytics"
+            android:title="Analytics" />
+        <item
+            android:id="@+id/nav_settings"
+            android:title="Settings" />
+    </group>
+</menu>
