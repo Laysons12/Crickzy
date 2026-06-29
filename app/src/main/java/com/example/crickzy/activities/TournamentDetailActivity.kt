@@ -492,9 +492,12 @@ class TournamentDetailActivity : AppCompatActivity() {
 
             // Add player input
             val etNewPlayer = EditText(this@TournamentDetailActivity).apply {
-                hint = "New player name"
+                hint = "Enter player name(s) (one per line)"
                 textSize = 15f
                 setPadding(24, 16, 24, 16)
+                inputType = android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_FLAG_MULTI_LINE
+                setSingleLine(false)
+                maxLines = 10
             }
             container.addView(etNewPlayer)
 
@@ -502,11 +505,24 @@ class TournamentDetailActivity : AppCompatActivity() {
                 .setTitle("✏️ Edit Players — $teamName")
                 .setView(container)
                 .setPositiveButton("Add Player") { _, _ ->
-                    val newName = etNewPlayer.text.toString().trim()
-                    if (newName.isEmpty()) { Toast.makeText(this@TournamentDetailActivity, "Enter a player name", Toast.LENGTH_SHORT).show(); return@setPositiveButton }
+                    val input = etNewPlayer.text.toString().trim()
+                    if (input.isEmpty()) { Toast.makeText(this@TournamentDetailActivity, "Enter player name(s)", Toast.LENGTH_SHORT).show(); return@setPositiveButton }
+                    val newNames = input.lines().map { it.trim() }.filter { it.isNotEmpty() }
+                    if (newNames.isEmpty()) { Toast.makeText(this@TournamentDetailActivity, "Enter player name(s)", Toast.LENGTH_SHORT).show(); return@setPositiveButton }
+                    
                     lifecycleScope.launch {
-                        try { withContext(Dispatchers.IO) { SupabaseHelper.addTournamentTeamPlayer(teamId, newName) } } catch (e: Exception) { Log.e("TournamentDetail", "Failed to add player: ${e.message}") }
-                        Toast.makeText(this@TournamentDetailActivity, "$newName added", Toast.LENGTH_SHORT).show()
+                        try {
+                            withContext(Dispatchers.IO) {
+                                for (name in newNames) {
+                                    SupabaseHelper.addTournamentTeamPlayer(teamId, name)
+                                }
+                            }
+                            val msg = if (newNames.size == 1) "${newNames.first()} added" else "${newNames.size} players added"
+                            Toast.makeText(this@TournamentDetailActivity, msg, Toast.LENGTH_SHORT).show()
+                        } catch (e: Exception) {
+                            Log.e("TournamentDetail", "Failed to add player(s): ${e.message}")
+                            Toast.makeText(this@TournamentDetailActivity, "Error adding players", Toast.LENGTH_SHORT).show()
+                        }
                         loadTournamentData()
                         showEditPlayersDialog(teamId, teamName)
                     }
