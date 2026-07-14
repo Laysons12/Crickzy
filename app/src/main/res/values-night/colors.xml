@@ -3,37 +3,37 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <!-- Dark Mode Purple Palette -->
-    <color name="primary">#7B6FFF</color>
-    <color name="primary_variant">#4A3AFF</color>
-    <color name="primary_light">#A5A0FF</color>
-    <color name="primary_surface">#1E1B3A</color>
-    <color name="secondary">#FF8C5A</color>
-    <color name="secondary_variant">#FF6B35</color>
+    <!-- Dark Mode Forest Green Palette -->
+    <color name="primary">#52C498</color> <!-- Premium light mint green -->
+    <color name="primary_variant">#3AA97D</color>
+    <color name="primary_light">#7CE6BD</color>
+    <color name="primary_surface">#09261E</color>
+    <color name="secondary">#DCA134</color>
+    <color name="secondary_variant">#C48D23</color>
 
     <!-- Background & Surface -->
-    <color name="background">#0F1117</color>
-    <color name="surface">#1A1D26</color>
-    <color name="error">#F87171</color>
+    <color name="background">#051511</color> <!-- Deep forest dark green/black background -->
+    <color name="surface">#09221C</color> <!-- Muted dark forest green surface -->
+    <color name="error">#EF4444</color>
 
     <!-- Text Colors -->
-    <color name="text_primary">#F9FAFB</color>
-    <color name="text_secondary">#9CA3AF</color>
-    <color name="text_hint">#6B7280</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#77AA99</color>
+    <color name="text_hint">#447766</color>
 
     <!-- UI Element Colors -->
-    <color name="card_background">#1A1D26</color>
-    <color name="divider">#374151</color>
-    <color name="nav_inactive">#6B7280</color>
-    <color name="nav_active">#7B6FFF</color>
+    <color name="card_background">#0B2B23</color> <!-- Dark forest green card background -->
+    <color name="divider">#123D33</color>
+    <color name="nav_inactive">#669988</color>
+    <color name="nav_active">#52C498</color>
 
     <!-- Tab / Chip Colors -->
-    <color name="tab_selected_bg">#7B6FFF</color>
-    <color name="tab_selected_text">#FFFFFF</color>
-    <color name="tab_unselected_bg">#1F2937</color>
-    <color name="tab_unselected_text">#9CA3AF</color>
+    <color name="tab_selected_bg">#52C498</color>
+    <color name="tab_selected_text">#051511</color>
+    <color name="tab_unselected_bg">#092C23</color>
+    <color name="tab_unselected_text">#77AA99</color>
 
     <!-- Settings -->
-    <color name="settings_icon_bg">#1E1B3A</color>
-    <color name="settings_icon_tint">#7B6FFF</color>
+    <color name="settings_icon_bg">#0E3A2E</color>
+    <color name="settings_icon_tint">#52C498</color>
 </resources>

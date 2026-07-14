@@ -50,6 +50,11 @@ class SettingsFragment : Fragment() {
             startActivity(Intent(requireContext(), com.example.crickzy.activities.DailyPrefsActivity::class.java))
         }
 
+        val menuAiHelper = view.findViewById<View>(R.id.menuAiHelper)
+        menuAiHelper?.setOnClickListener {
+            startActivity(Intent(requireContext(), com.example.crickzy.activities.AiChatActivity::class.java))
+        }
+
         // Load saved dark mode preference
         val prefs = requireContext().getSharedPreferences("crickzy_prefs", 0)
         val isDarkMode = prefs.getBoolean("dark_mode", false)

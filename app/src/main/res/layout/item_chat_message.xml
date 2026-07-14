@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="4dp">
+
+    <!-- AI Message (left-aligned) -->
+    <LinearLayout
+        android:id="@+id/llAiMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:orientation="vertical"
+        android:maxWidth="300dp"
+        android:background="@drawable/bg_card_outlined"
+        android:backgroundTint="@color/card_background"
+        android:padding="12dp"
+        android:layout_marginEnd="48dp">
+
+        <TextView
+            android:id="@+id/tvAiLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🏏 Crickzy AI"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:textColor="@color/primary"
+            android:paddingBottom="4dp" />
+
+        <TextView
+            android:id="@+id/tvAiText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/text_primary"
+            android:lineSpacingMultiplier="1.3" />
+    </LinearLayout>
+
+    <!-- User Message (right-aligned) -->
+    <LinearLayout
+        android:id="@+id/llUserMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:orientation="vertical"
+        android:maxWidth="280dp"
+        android:background="@drawable/bg_rounded_button"
+        android:backgroundTint="@color/primary"
+        android:padding="12dp"
+        android:layout_marginStart="48dp">
+
+        <TextView
+            android:id="@+id/tvUserText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:lineSpacingMultiplier="1.2" />
+    </LinearLayout>
+
+</FrameLayout>

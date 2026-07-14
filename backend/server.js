@@ -184,6 +184,60 @@ app.get('/api/requests', (req, res) => {
     });
 });
 
+// ========== AI CHAT (Gemini) ==========
+const { GoogleGenerativeAI } = require('@google/generative-ai');
+
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY || 'YOUR_GEMINI_API_KEY_HERE';
+const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
+
+const CRICKZY_SYSTEM_PROMPT = `You are Crickzy AI — a friendly, knowledgeable cricket assistant built into the Crickzy app.
+
+Your expertise includes:
+- Cricket rules, formats (T20, ODI, Test), and scoring
+- Match strategy, field placements, and batting/bowling tactics
+- Tournament formats (league, knockout, round-robin) and fixture scheduling
+- Player roles (batsman, bowler, all-rounder, wicket-keeper)
+- DLS method, powerplay rules, free-hits, and edge cases
+- Turf/ground booking tips and etiquette
+- Cricket fitness, injury prevention, and warm-up routines
+
+Personality:
+- Be concise but helpful — users are on mobile
+- Use cricket emoji where appropriate (🏏 🎯 🏆 ⚡)
+- If asked something outside cricket, politely redirect
+- When explaining rules, give simple examples
+- Keep responses under 200 words unless the user asks for detail`;
+
+app.post('/api/chat', async (req, res) => {
+    try {
+        const { message, history } = req.body;
+        if (!message || message.trim() === '') {
+            return res.status(400).json({ success: false, error: 'Message is required' });
+        }
+
+        const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
+
+        // Build chat history from client
+        const chatHistory = (history || []).map(h => ({
+            role: h.role === 'user' ? 'user' : 'model',
+            parts: [{ text: h.text }]
+        }));
+
+        const chat = model.startChat({
+            history: chatHistory,
+            systemInstruction: CRICKZY_SYSTEM_PROMPT,
+        });
+
+        const result = await chat.sendMessage(message);
+        const reply = result.response.text();
+
+        res.json({ success: true, reply });
+    } catch (err) {
+        console.error('Chat API Error:', err.message);
+        res.status(500).json({ success: false, error: 'AI service unavailable. Try again later.' });
+    }
+});
+
 // ========== START SERVER ==========
 const PORT = 3000;
 app.listen(PORT, '0.0.0.0', () => {
@@ -192,4 +246,5 @@ app.listen(PORT, '0.0.0.0', () => {
     console.log('  POST /api/register, /api/login');
     console.log('  GET/POST /api/players, /api/teams, /api/turfs');
     console.log('  GET/POST /api/bookings, /api/matches, /api/tournaments, /api/requests');
+    console.log('  POST /api/chat (Gemini AI)');
 });
