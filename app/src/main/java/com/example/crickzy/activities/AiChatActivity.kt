@@ -43,7 +43,7 @@ class AiChatActivity : AppCompatActivity() {
         .build()
 
     // Change this to your backend server URL
-    private val CHAT_API_URL = "https://jsmnhfwuuwijemozuigs.supabase.co/functions/v1/chat"
+    private val CHAT_API_URL = "http://10.4.212.192:3000/api/chat"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

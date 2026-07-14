@@ -17,3 +17,6 @@ local.properties
 # Temp log and text files
 *.log
 *.txt
+
+# Node modules
+node_modules/

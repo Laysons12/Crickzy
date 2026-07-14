@@ -187,7 +187,7 @@ app.get('/api/requests', (req, res) => {
 // ========== AI CHAT (Gemini) ==========
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY || 'YOUR_GEMINI_API_KEY_HERE';
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY || ''; // SET YOUR GEMINI_API_KEY ENVIRONMENT VARIABLE BEFORE RUNNING!
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 
 const CRICKZY_SYSTEM_PROMPT = `You are Crickzy AI — a friendly, knowledgeable cricket assistant built into the Crickzy app.
